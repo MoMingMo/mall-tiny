@@ -19,27 +19,31 @@ import com.macro.mall.tiny.malltiny.common.api.CommonResult;
 import com.macro.mall.tiny.malltiny.mbg.model.PmsBrand;
 import com.macro.mall.tiny.malltiny.service.PmsBrandService;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
+
 
 @Controller
 @RequestMapping("/brand")
+@Tag(name = "PmsBrandController", description = "商品品牌管理")
 public class PmsBrandController {
     @Autowired
     private PmsBrandService _pmsBrandService;   
     private static final Logger LOGGER  = LoggerFactory.getLogger(PmsBrandController.class);
 
-
+    @Operation(summary = "测试")
     @RequestMapping(value = "index", method = RequestMethod.GET)
     @ResponseBody
     public CommonResult<String> index() {
         return CommonResult.success(" hello index");
     }
-
+    @Operation(summary = "获取所有品牌列表")
     @RequestMapping(value = "listAll", method = RequestMethod.GET)
     @ResponseBody
     public CommonResult<List<PmsBrand>> getBrandList() {
         return CommonResult.success(_pmsBrandService.listAllBrand());
     }
-
+    @Operation(summary = "添加品牌")
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult createBrand(@RequestBody PmsBrand pmsBrand) {
@@ -54,7 +58,7 @@ public class PmsBrandController {
         }
         return commonResult;
     }
-
+    @Operation(summary = "更新指定id品牌信息")
     @RequestMapping(value = "/update/{id}", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult updateBrand(@PathVariable("id") Long id, @RequestBody PmsBrand pmsBrandDto, BindingResult result) {
@@ -69,7 +73,7 @@ public class PmsBrandController {
         }
         return commonResult;
     }
-
+    @Operation(summary = "删除指定id的品牌")
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
     @ResponseBody
     public CommonResult deleteBrand(@PathVariable("id") Long id) {
@@ -82,7 +86,7 @@ public class PmsBrandController {
             return CommonResult.failed("操作失败");
         }
     }
-
+    @Operation(summary = "分页查询品牌列表")
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     @ResponseBody
     public CommonResult<CommonPage<PmsBrand>> listBrand(@RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum,
@@ -90,7 +94,7 @@ public class PmsBrandController {
         List<PmsBrand> brandList = _pmsBrandService.listBrand(pageNum, pageSize);
         return CommonResult.success(CommonPage.restPage(brandList));
     }
-
+    @Operation(summary = "获取指定id的品牌详情")
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     @ResponseBody
     public CommonResult<PmsBrand> brand(@PathVariable("id") Long id) {
