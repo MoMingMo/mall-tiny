@@ -2,6 +2,8 @@ package com.macro.mall.tiny.malltiny.common.api;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+
 import com.github.pagehelper.PageInfo;
 
 /**
@@ -26,6 +28,19 @@ public class CommonPage<T> {
         result.setPageSize(pageInfo.getPageSize());
         result.setTotal(pageInfo.getTotal());
         result.setList(pageInfo.getList());
+        return result;
+    }
+
+    /**
+     * 将SpringData分页后的list转为分页信息
+     */
+    public static <T> CommonPage<T> restPage(Page<T> pageInfo) {
+        CommonPage<T> result = new CommonPage<T>();
+        result.setTotalPage(pageInfo.getTotalPages());
+        result.setPageNum(pageInfo.getNumber());
+        result.setPageSize(pageInfo.getSize());
+        result.setTotal(pageInfo.getTotalElements());
+        result.setList(pageInfo.getContent());
         return result;
     }
 

@@ -36,19 +36,19 @@ public class SpringDocConfig {
                                         .bearerFormat("JWT")));
     }
 
-    @Bean
-    public GroupedOpenApi publicApi() {
-        return GroupedOpenApi.builder()
-                .group("brand")
-                .pathsToMatch("/brand/**")
-                .build();
-    }
+//     @Bean
+//     public GroupedOpenApi publicApi() {
+//         return GroupedOpenApi.builder()
+//                 .group("brand")
+//                 .pathsToMatch("/brand/**")
+//                 .build();
+//     }
 
-    @Bean
-    public GroupedOpenApi ssoApi() {
-        return GroupedOpenApi.builder()
-                .group("sso")
-                .pathsToMatch("/sso/**")
-                .build();
-    }
+//     @Bean
+//     public GroupedOpenApi ssoApi() {
+//         return GroupedOpenApi.builder()
+//                 .group("sso")
+//                 .pathsToMatch("/sso/**")
+//                 .build();
+//     }
 }

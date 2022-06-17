@@ -2,6 +2,7 @@ package com.macro.mall.tiny.malltiny.mbg.mapper;
 
 import com.macro.mall.tiny.malltiny.mbg.model.UmsRolePermissionRelation;
 import com.macro.mall.tiny.malltiny.mbg.model.UmsRolePermissionRelationExample;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

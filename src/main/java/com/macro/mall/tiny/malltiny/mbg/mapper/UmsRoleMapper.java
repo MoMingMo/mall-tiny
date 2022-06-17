@@ -2,6 +2,7 @@ package com.macro.mall.tiny.malltiny.mbg.mapper;
 
 import com.macro.mall.tiny.malltiny.mbg.model.UmsRole;
 import com.macro.mall.tiny.malltiny.mbg.model.UmsRoleExample;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

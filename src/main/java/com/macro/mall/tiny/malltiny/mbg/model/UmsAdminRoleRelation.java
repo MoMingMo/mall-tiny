@@ -1,5 +1,6 @@
 package com.macro.mall.tiny.malltiny.mbg.model;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serializable;
 
 public class UmsAdminRoleRelation implements Serializable {
